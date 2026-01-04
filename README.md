@@ -5,8 +5,7 @@ dasar:
 pemasangan recovery/twrp sesuaikan dengan perangakt yang di pakai 
 jika sudah terpasang recovery/twrp booting in twrp 
 
-
-1. Fase Instalasi (adb sideload)
+#1. Fase Instalasi (adb sideload)
 
 Gunakan ini untuk menginstal Custom ROM atau Magisk.
 
@@ -23,7 +22,7 @@ Gunakan ini untuk menginstal Custom ROM atau Magisk.
 
 
 
-2. Fase "Kunci Pintu" (Bypass Otorisasi ADB)
+#2. Fase "Kunci Pintu" (Bypass Otorisasi ADB)
 
        adb shell twrp mount /data (di beberapa twrp dan custom rom terjadi error)
 
@@ -39,7 +38,7 @@ Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 
 
 
-3. Fase "Jalan Pintas" (Bypass Setup Wizard)
+#3. Fase "Jalan Pintas" (Bypass Setup Wizard)
 
        adb shell twrp mount /system
 
@@ -55,7 +54,7 @@ Cuplikan kode
 
 
 
-4. Fase "Nirkabel" (Aktifkan TCP/IP 5555)
+#4. Fase "Nirkabel" (Aktifkan TCP/IP 5555)
 
 Agar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
 Edit build.prop sesuaikan dengan varian twrp
@@ -77,7 +76,7 @@ Simpan & Reboot:
 
 
 
-5. Fase booting ke android (tunggu 5-10 menit) 
+#5. Fase booting ke android (tunggu 5-10 menit) 
 
        adb devices (jika berhasil lanjut jika gagal ulangi dari fase 1)
 
