@@ -13,45 +13,45 @@ Gunakan ini untuk menginstal Custom ROM atau Magisk.
     Masuk Mode Sideload: (Di TWRP)
     Cuplikan kode
 
-adb devices (biasanya terbaca perangkat recovery)
+    adb devices (biasanya terbaca perangkat recovery)
     
-adb shell "echo 'tw_has_shown_swipecert=1' > /twres/twrp.flags" (bypass on screnn wellcome twrp)
+    adb shell "echo 'tw_has_shown_swipecert=1' > /twres/twrp.flags" (bypass on screnn wellcome twrp)
 
-adb shell twrp sideload (untuk masuk ke mode sideload)
+    adb shell twrp sideload (untuk masuk ke mode sideload)
 
-adb sideload name_file_magisk_or_rom.zip (Tunggu hingga proses di terminal 100%)
+    adb sideload name_file_magisk_or_rom.zip (Tunggu hingga proses di terminal 100%)
 
 
 
 2. Fase "Kunci Pintu" (Bypass Otorisasi ADB)
 
-adb shell twrp mount /data (di beberapa twrp dan custom rom terjadi error)
+       adb shell twrp mount /data (di beberapa twrp dan custom rom terjadi error)
 
 Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 
-  adb shell "mkdir -p /data/misc/adb/"
+    adb shell "mkdir -p /data/misc/adb/"
    
-  adb push ~/.android/adbkey.pub /data/misc/adb/adb_keys
+    adb push ~/.android/adbkey.pub /data/misc/adb/adb_keys
     
-  adb shell "chown 1000:1000 /data/misc/adb/adb_keys"
+    adb shell "chown 1000:1000 /data/misc/adb/adb_keys"
     
-  adb shell "chmod 644 /data/misc/adb/adb_keys"
+    adb shell "chmod 644 /data/misc/adb/adb_keys"
 
 
 
 3. Fase "Jalan Pintas" (Bypass Setup Wizard)
 
-adb shell twrp mount /system
+       adb shell twrp mount /system
 
-adb shell "mount -o remount,rw /system"
+       adb shell "mount -o remount,rw /system"
 
 Matikan Izin Eksekusi APK: (Metode paling aman agar tidak bootloop)
 Cuplikan kode
 # Matikan Wizard LineageOS & Provisioning
 
-   adb shell "chmod 000 /system/system/priv-app/LineageSetupWizard/LineageSetupWizard.apk"
+     adb shell "chmod 000 /system/system/priv-app/LineageSetupWizard/LineageSetupWizard.apk"
   
-   adb shell "chmod 000 /system/system/priv-app/ManagedProvisioning/ManagedProvisioning.apk"
+     adb shell "chmod 000 /system/system/priv-app/ManagedProvisioning/ManagedProvisioning.apk"
 
 
 
@@ -60,28 +60,28 @@ Cuplikan kode
 Agar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
 Edit build.prop:
 
-set BP "/system/system/build.prop"
+    set BP "/system/system/build.prop"
 
-adb shell "echo 'service.adb.tcp.port=5555' >> $BP"
+    adb shell "echo 'service.adb.tcp.port=5555' >> $BP"
 
-adb shell "echo 'ro.setupwizard.mode=DISABLED' >> $BP"
+    adb shell "echo 'ro.setupwizard.mode=DISABLED' >> $BP"
 
-adb shell "sed -i 's/ro.adb.secure=1/ro.adb.secure=0/g' $BP"
+    adb shell "sed -i 's/ro.adb.secure=1/ro.adb.secure=0/g' $BP"
 
 
 Simpan & Reboot:
 
-  adb shell sync
+    adb shell sync
   
-  adb reboot
+    adb reboot
 
 
 
 5. Fase booting ke android (tunggu 5-10 menit) 
 
-  adb devices (jika berhasil lanjut jika gagal ulangi dari fase 1)
+       adb devices (jika berhasil lanjut jika gagal ulangi dari fase 1)
 
-  scrcpy (done) 
+       scrcpy (done) 
   
 
 Ringkasan Perintah "Sakti" (Quick Check)
