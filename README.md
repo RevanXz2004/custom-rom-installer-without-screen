@@ -22,7 +22,7 @@ Gunakan ini untuk menginstal Custom ROM atau Magisk.
 
 
 
-#2. Fase "Kunci Pintu" (Bypass Otorisasi ADB)
+# 2. Fase "Kunci Pintu" (Bypass Otorisasi ADB)
 
        adb shell twrp mount /data (di beberapa twrp dan custom rom terjadi error)
 
@@ -38,7 +38,7 @@ Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 
 
 
-#3. Fase "Jalan Pintas" (Bypass Setup Wizard)
+# 3. Fase "Jalan Pintas" (Bypass Setup Wizard Opsional) 
 
        adb shell twrp mount /system
 
@@ -46,7 +46,8 @@ Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 
 Matikan Izin Eksekusi APK: (Metode paling aman agar tidak bootloop)
 Cuplikan kode
-# Matikan Wizard LineageOS & Provisioning
+
+Matikan Wizard LineageOS & Provisioning
 
      adb shell "chmod 000 /system/system/priv-app/LineageSetupWizard/LineageSetupWizard.apk"
   
@@ -54,7 +55,7 @@ Cuplikan kode
 
 
 
-#4. Fase "Nirkabel" (Aktifkan TCP/IP 5555)
+# 4. Fase "Nirkabel" (Aktifkan TCP/IP 5555)
 
 Agar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
 Edit build.prop sesuaikan dengan varian twrp
@@ -76,7 +77,7 @@ Simpan & Reboot:
 
 
 
-#5. Fase booting ke android (tunggu 5-10 menit) 
+# 5. Fase booting ke android (tunggu 5-10 menit) 
 
        adb devices (jika berhasil lanjut jika gagal ulangi dari fase 1)
 
