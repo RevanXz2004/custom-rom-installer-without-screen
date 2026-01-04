@@ -5,7 +5,7 @@ dasar:
 pemasangan recovery/twrp sesuaikan dengan perangakt yang di pakai 
 jika sudah terpasang recovery/twrp booting in twrp 
 
-#1. Fase Instalasi (adb sideload)
+# 1. Fase Instalasi (adb sideload)
 
 Gunakan ini untuk menginstal Custom ROM atau Magisk.
 
