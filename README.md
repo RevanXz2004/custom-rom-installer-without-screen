@@ -58,7 +58,7 @@ Cuplikan kode
 4. Fase "Nirkabel" (Aktifkan TCP/IP 5555)
 
 Agar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
-Edit build.prop:
+Edit build.prop sesuaikan dengan varian twrp
 
     set BP "/system/system/build.prop"
 
