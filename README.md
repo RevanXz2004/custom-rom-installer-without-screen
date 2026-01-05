@@ -1,6 +1,7 @@
 # custom-rom-installer-without-screen
 pemasangan custom rom tidak ada layar tested on redmi 5a riva 
-pastikan perangkat tidak terkunci bootloader 
+pastikan perangkat tidak terkunci bootloader
+
 dasar: 
 pemasangan recovery/twrp sesuaikan dengan perangakt yang di pakai 
 jika sudah terpasang recovery/twrp booting in twrp vol up+power tunggu 10-15 detik 
