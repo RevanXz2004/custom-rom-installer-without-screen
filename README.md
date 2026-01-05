@@ -139,9 +139,13 @@ tunggu proses flashing 100%
     adb devices
 
     scrcpy
-  
+  booting ke 1 perangkat akan terhubung ke adb +-5 detik itu normal tunggu hingga booting ke 2 terhubung kembali -+1 menit 
 
 # Ringkasan Perintah
+
+  Tambahkan ini untuk membuka fitur Developer Options secara otomatis
+  
+    adb shell settings put global development_settings_enabled 1
 
   Cek Mount: adb shell df -h (Pastikan /system dan /data bukan tmpfs).
 
