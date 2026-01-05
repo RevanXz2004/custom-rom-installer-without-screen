@@ -44,9 +44,11 @@ Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 # 3. Fase "Jalan Pintas" (Bypass Setup Wizard Opsional) 
 
 Remount partisi /system agar bisa ditulis (RW)
+    
     adb shell "mount -o remount,rw /system"
 
 Jika gagal, coba gunakan jalur fisik (System-as-root)
+    
     adb shell "mount -o remount,rw /"
 
 
@@ -70,11 +72,28 @@ gar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
     set BP "/system/system/build.prop" 
 
     adb shell "echo 'service.adb.tcp.port=5555' >> $BP"
-
-    adb shell "echo 'ro.setupwizard.mode=DISABLED' >> $BP"
-
+   
     adb shell "sed -i 's/ro.adb.secure=1/ro.adb.secure=0/g' $BP"
+    
+    adb shell "echo 'persist.sys.usb.config=mtp,adb' >> $BP"
+    
+    adb shell "echo 'ro.setupwizard.mode=DISABLED' >> $BP"
+    
+    adb shell "echo 'ro.setupwizard.enterprise_mode=1' >> $BP"
+    
+    adb shell "echo 'ro.no_setup_wizard=1' >> $BP"
 
+Pastikan baris-baris tersebut sudah benar-benar tertulis di dalam file sistem:
+Cuplikan kode
+
+    adb shell "grep -E 'ro.adb.secure|persist.sys.usb.config|ro.setupwizard.mode|service.adb.tcp.port' /system/system/build.prop"
+
+Pastikan muncul output seperti ini:
+
+    # ro.adb.secure=0
+    # persist.sys.usb.config=mtp,adb
+    # ro.setupwizard.mode=DISABLED
+    # service.adb.tcp.port'
 
 Simpan & Reboot:
 
@@ -86,12 +105,13 @@ Simpan & Reboot:
 
 # 5. Fase booting ke android (tunggu 5-10 menit) 
 
-    adb devices (jika berhasil lanjut jika gagal ulangi dari fase 1)
+    # seharusnya sudah terbaca "devices"
+    adb devices
 
-    scrcpy (done) 
+    scrcpy
   
 
-# Ringkasan Perintah 
+# Ringkasan Perintah
 
   Cek Mount: adb shell df -h (Pastikan /system dan /data bukan tmpfs).
 
