@@ -74,12 +74,23 @@ tunggu proses flashing 100%
  Matikan Izin Eksekusi APK: (Metode paling aman agar tidak bootloop)
  Cuplikan kode
 
- Matikan Wizard LineageOS & Provisioning
+ Mencari semua file APK yang mengandung kata "Wizard" atau "Provision"
+     
+     adb shell "find /system -name '*Wizard*.apk'"
+     adb shell "find /system -name '*Provision*.apk'"
 
-     adb shell "chmod 000 /system/system/priv-app/LineageSetupWizard/LineageSetupWizard.apk"
+ Catatan: Simpan jalur (path) yang muncul dari hasil perintah di atas. Jalur itulah yang akan kita gunakan untuk perintah chmod.
+
+ Ganti [PATH_HASIL_FIND] dengan hasil dari langkah 2
+   
+    adb shell "chmod 000 [PATH_HASIL_FIND]"
   
-     adb shell "chmod 000 /system/system/priv-app/ManagedProvisioning/ManagedProvisioning.apk"
+    # contoh
+    adb shell "chmod 000 /system/system/priv-app/LineageSetupWizard/LineageSetupWizard.apk"
+  
+    adb shell "chmod 000 /system/system/priv-app/ManagedProvisioning/ManagedProvisioning.apk"
 
+ Jika perintah ini tidak memunculkan error "Read-only", berarti Anda sudah berhasil.
 
 
 # 4. Fase "Nirkabel" (Aktifkan TCP/IP 5555)
