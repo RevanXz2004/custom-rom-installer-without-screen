@@ -25,7 +25,8 @@ tunggu proses flashing 100%
 
  Perintah ini akan menghapus seluruh partisi userdata termasuk enkripsi (opsional)
     
-    adb shell twrp format data
+    adb shell twrp wipe data
+    adb shell twrp wipe cache
  Jika tidak muncul pesan "Invalid argument", berarti pintu sudah terbuka.
 
 
