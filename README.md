@@ -97,9 +97,9 @@ tunggu proses flashing 100%
 
  gar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
 
- Edit build.prop tested android 10
+ Edit build.prop sesuikan jalur path system
 
-    set BP "/system/system/build.prop" 
+    set BP "/system/build.prop" 
 
     adb shell "echo 'service.adb.tcp.port=5555' >> $BP"
    
