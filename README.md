@@ -141,15 +141,23 @@ tunggu proses flashing 100%
     scrcpy
   booting ke 1 perangkat akan terhubung ke adb +-5 detik itu normal tunggu hingga booting ke 2 terhubung kembali -+1 menit 
 
-# Ringkasan Perintah
+# Ringkasan Perintah (mungkin dibeberapa custom rom mengalami hilang Panel Notifikasi&Status Bar
 
-  Tambahkan ini untuk membuka fitur Developer Options secara otomatis
+Menandai perangkat sudah diprovinsi
+   
+    adb shell settings put global device_provisioned 1
+
+Menandai setup user sudah selesai
+
+    adb shell settings put secure user_setup_complete 1
+
+ Menandai Setup Wizard sudah pernah berjalan
+
+    adb shell settings put global setup_wizard_has_run 1
+
+ Tambahkan ini untuk membuka fitur Developer Options secara otomatis
   
     adb shell settings put global development_settings_enabled 1
-
-  Cek Mount: adb shell df -h (Pastikan /system dan /data bukan tmpfs).
-
-  Cek Jalur: adb shell find /system -name "*Wizard*.apk".
 
 # jika terjadi error atau gagal flash rom 
   Format Data & System (Hapus sisa error):
