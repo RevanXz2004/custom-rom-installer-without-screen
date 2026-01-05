@@ -23,13 +23,17 @@ bypass on screnn wellcome twrp
     adb sideload name_file_magisk_or_rom.zip
 tunggu proses flashing 100%
 
+ Perintah ini akan menghapus seluruh partisi userdata termasuk enkripsi (opsional)
+    
+    adb shell twrp format data
+ Jika tidak muncul pesan "Invalid argument", berarti pintu sudah terbuka.
 
 
 # 2. Fase "Kunci Pintu" (Bypass Otorisasi ADB)
 
     adb shell twrp mount /data
 
-Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
+ Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 
     adb shell "mkdir -p /data/misc/adb/"
    
@@ -43,17 +47,17 @@ Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 
 # 3. Fase "Jalan Pintas" (Bypass Setup Wizard Opsional) 
 
-perintahkan TWRP untuk melakukan mounting secara otomatis
+ perintahkan TWRP untuk melakukan mounting secara otomatis
   
     adb shell twrp mount /system
 
-Jika perintah ini berhasil, Anda tidak akan melihat pesan error. Jika gagal, TWRP akan memberitahu letak masalahnya.
+ Jika perintah ini berhasil, Anda tidak akan melihat pesan error. Jika gagal, TWRP akan memberitahu letak masalahnya.
 
  Cek apakah folder system_root ada
 
     adb shell ls -d /system
 
-Jika folder tersebut ada, gunakan:
+ Jika folder tersebut ada, gunakan:
 
     adb shell mount /system
     
@@ -62,13 +66,13 @@ Jika folder tersebut ada, gunakan:
     
     adb shell "mount -o remount,rw /system"
 
-Jika gagal, coba gunakan jalur fisik (System-as-root)
+ Jika gagal, coba gunakan jalur fisik (System-as-root)
     
     adb shell "mount -o remount,rw /"
 
 
-Matikan Izin Eksekusi APK: (Metode paling aman agar tidak bootloop)
-Cuplikan kode
+ Matikan Izin Eksekusi APK: (Metode paling aman agar tidak bootloop)
+ Cuplikan kode
 
  Matikan Wizard LineageOS & Provisioning
 
@@ -80,7 +84,7 @@ Cuplikan kode
 
 # 4. Fase "Nirkabel" (Aktifkan TCP/IP 5555)
 
-gar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
+ gar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
 
  Edit build.prop tested android 10
 
@@ -98,19 +102,19 @@ gar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
     
     adb shell "echo 'ro.no_setup_wizard=1' >> $BP"
 
-Pastikan baris-baris tersebut sudah benar-benar tertulis di dalam file sistem:
-Cuplikan kode
+ Pastikan baris-baris tersebut sudah benar-benar tertulis di dalam file sistem:
+ Cuplikan kode
 
     adb shell "grep -E 'ro.adb.secure|persist.sys.usb.config|ro.setupwizard.mode|service.adb.tcp.port' /system/system/build.prop"
 
-Pastikan muncul output seperti ini:
+ Pastikan muncul output seperti ini:
 
     # ro.adb.secure=0
     # persist.sys.usb.config=mtp,adb
     # ro.setupwizard.mode=DISABLED
     # service.adb.tcp.port'
 
-Simpan & Reboot:
+ Simpan & Reboot:
 
     adb shell sync
   
@@ -140,9 +144,9 @@ Simpan & Reboot:
     adb shell "mke2fs -t ext4 -F /dev/block/bootdevice/by-name/system"
     # lanjut ke fase 1 
 
-Tips Tambahan: Selalu jalankan adb shell sync sebelum reboot agar perubahan permanen. HP Anda sekarang sudah menjadi "Server Headless" yang tangguh!
+  Tips Tambahan: Selalu jalankan adb shell sync sebelum reboot agar perubahan permanen. HP Anda sekarang sudah menjadi "Server Headless" yang tangguh!
 
-support me cofe and Snacks :)
+  support me cofe and Snacks :)
     
     # saweria:
     https://saweria.co/revanhd
