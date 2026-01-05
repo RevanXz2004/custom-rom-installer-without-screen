@@ -10,6 +10,7 @@ jika sudah terpasang recovery/twrp booting in twrp vol up+power tunggu 10-15 det
 Gunakan ini untuk menginstal Custom ROM atau Magisk
     
     # pastikan perangkat sebagai recovery
+   
     adb devices
 
     # bypass on screnn wellcome twrp
