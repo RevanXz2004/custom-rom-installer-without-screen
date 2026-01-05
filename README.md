@@ -3,7 +3,7 @@ pemasangan custom rom tidak ada layar tested on redmi 5a riva
 pastikan perangkat tidak terkunci bootloader 
 dasar: 
 pemasangan recovery/twrp sesuaikan dengan perangakt yang di pakai 
-jika sudah terpasang recovery/twrp booting in twrp 
+jika sudah terpasang recovery/twrp booting in twrp vol up+power tunggu 10-15 detik 
 
 # 1. Fase Instalasi (adb sideload)
 
@@ -26,9 +26,7 @@ tunggu proses flashing 100%
 # 2. Fase "Kunci Pintu" (Bypass Otorisasi ADB)
 
     adb shell twrp mount /data
-jika terjadi gagal mount 
 
- 
 Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 
     adb shell "mkdir -p /data/misc/adb/"
@@ -91,7 +89,7 @@ Simpan & Reboot:
     scrcpy (done) 
   
 
-Ringkasan Perintah 
+# Ringkasan Perintah 
 
   Cek Mount: adb shell df -h (Pastikan /system dan /data bukan tmpfs).
 
@@ -108,12 +106,13 @@ Ringkasan Perintah
 Tips Tambahan: Selalu jalankan adb shell sync sebelum reboot agar perubahan permanen. HP Anda sekarang sudah menjadi "Server Headless" yang tangguh!
 
 support me cofe and Snacks :)
-# saweria:
+    
+    # saweria:
     https://saweria.co/revanhd
-# ton: 
+    # ton: 
     UQChjikOpB7AlcSBfzKaK5ex-HzntzqbmwtKwmTrIpKZdx0u
-# pump:
+    # pump:
     3W4jjH3GkCzienbR5YN4J3ZgE9cQkyLpZ9cD2HwRAGYh
-# btc: 
+    # btc: 
     bc1qfrsnqz5ly9nn6a4jngaev05nyvh70z4g2zk0ck
 
