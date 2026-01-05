@@ -43,7 +43,22 @@ Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 
 # 3. Fase "Jalan Pintas" (Bypass Setup Wizard Opsional) 
 
-Remount partisi /system agar bisa ditulis (RW)
+perintahkan TWRP untuk melakukan mounting secara otomatis
+  
+    adb shell twrp mount /system
+
+Jika perintah ini berhasil, Anda tidak akan melihat pesan error. Jika gagal, TWRP akan memberitahu letak masalahnya.
+
+ Cek apakah folder system_root ada
+
+    adb shell ls -d /system
+
+Jika folder tersebut ada, gunakan:
+
+    adb shell mount /system
+    
+
+ Remount partisi /system agar bisa ditulis (RW)
     
     adb shell "mount -o remount,rw /system"
 
