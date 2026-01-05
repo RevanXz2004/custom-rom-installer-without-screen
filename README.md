@@ -9,11 +9,11 @@ jika sudah terpasang recovery/twrp booting in twrp vol up+power tunggu 10-15 det
 
 Gunakan ini untuk menginstal Custom ROM atau Magisk
     
-    # pastikan perangkat sebagai recovery
+pastikan perangkat sebagai recovery
    
     adb devices
 
-    # bypass on screnn wellcome twrp
+bypass on screnn wellcome twrp
    
     adb shell "echo 'tw_has_shown_swipecert=1' > /twres/twrp.flags"
 
@@ -42,17 +42,17 @@ Suntik Kunci RSA:(sesuaikan lokasi peyimpana di windows/linux)
 
 # 3. Fase "Jalan Pintas" (Bypass Setup Wizard Opsional) 
 
-    # Remount partisi /system agar bisa ditulis (RW)
+Remount partisi /system agar bisa ditulis (RW)
     adb shell "mount -o remount,rw /system"
 
-    # Jika gagal, coba gunakan jalur fisik (System-as-root)
+Jika gagal, coba gunakan jalur fisik (System-as-root)
     adb shell "mount -o remount,rw /"
 
 
 Matikan Izin Eksekusi APK: (Metode paling aman agar tidak bootloop)
 Cuplikan kode
 
-     # Matikan Wizard LineageOS & Provisioning
+ Matikan Wizard LineageOS & Provisioning
 
      adb shell "chmod 000 /system/system/priv-app/LineageSetupWizard/LineageSetupWizard.apk"
   
@@ -64,7 +64,7 @@ Cuplikan kode
 
 gar Anda bisa mengontrol HP via WiFi tanpa kabel USB menggunakan scrcpy.
 
-    # Edit build.prop tested android 10
+ Edit build.prop tested android 10
 
     set BP "/system/system/build.prop" 
 
