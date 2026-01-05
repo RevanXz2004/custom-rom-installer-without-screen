@@ -103,7 +103,7 @@ tunggu proses flashing 100%
 
     adb shell "echo 'service.adb.tcp.port=5555' >> $BP"
    
-    adb shell "sed -i 's/ro.adb.secure=1/ro.adb.secure=0/g' $BP"
+    adb shell "grep -q 'ro.adb.secure' $BP || echo 'ro.adb.secure=0' >> $BP"
     
     adb shell "echo 'persist.sys.usb.config=mtp,adb' >> $BP"
     
