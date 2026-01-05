@@ -116,7 +116,7 @@ tunggu proses flashing 100%
  Pastikan baris-baris tersebut sudah benar-benar tertulis di dalam file sistem:
  Cuplikan kode
 
-    adb shell "grep -E 'ro.adb.secure|persist.sys.usb.config|ro.setupwizard.mode|service.adb.tcp.port' /system/system/build.prop"
+    adb shell "grep -E 'ro.adb.secure|persist.sys.usb.config|ro.setupwizard.mode|service.adb.tcp.port' /system/build.prop"
 
  Pastikan muncul output seperti ini:
 
